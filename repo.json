@@ -1,9 +1,26 @@
 {
   "pkg_format": "debian",
+  "repo_version": 1,
+  "name": "AndroidIDE Repository",
+  "description": "Custom package repository for AndroidIDE environment",
+  "maintainer": "Kelexine <kelexine@gmail.com>",
   "packages": {
-    "name": "termux-main",
-    "distribution": "stable",
+    "name": "androidide-main",
+    "distribution": "kelexine",
     "component": "main",
-    "url": "https://packages.androidide.com/apt/termux-main"
+    "architectures": ["aarch64", "arm", "i686", "x86_64"],
+    "url": "https://kelexine.github.io/ide-termux-repo/",
+    "custom_prefix": "/data/data/com.itsaky.androidide/files/usr",
+    "gpg_key": {
+      "url": "https://kelexine.github.io/ide-termux-repo/public.key",
+      "fingerprint": "02F993EC6E6663C6405957D5AF20C8AA5C2C063E"
+    }
+  }
+  "repo_specific": {
+    "path_overrides": {
+      "/data/data/com.termux/": "/data/data/com.itsaky.androidide/"
+    },
+    "max_package_size": "100MB",
+    "dependency_checks": "strict"
   }
 }
